@@ -77,3 +77,17 @@
 
 // Empieza aquí tu código
 
+var titular= document.querySelector("#titular");
+var contadorNumero = document.querySelector("#contador-numero");
+titular.addEventListener("input" , function(){
+
+   var texto = titular.value;
+
+   console.log(texto.length)
+      if (texto.length > 10) {
+         //bloqueo el input para que no pueda seguir escribiendo
+         console.log("ahora se bloquea!")
+
+      }
+   
+})
