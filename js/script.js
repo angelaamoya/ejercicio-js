@@ -78,16 +78,25 @@
 // Empieza aquí tu código
 
 var titular= document.querySelector("#titular");
+var contador= document.querySelector(".contador");
 var contadorNumero = document.querySelector("#contador-numero");
+var avis0 = document.querySelector("aviso");
 titular.addEventListener("input" , function(){
 
    var texto = titular.value;
 
-   console.log(texto.length)
-      if (texto.length > 10) {
-         //bloqueo el input para que no pueda seguir escribiendo
-         console.log("ahora se bloquea!")
 
+   contadorNumero.textContent = texto.length
+
+   console.log(texto.length)
+      if (texto.length > 20) {
+         contador.classList.add("is-error");
+         aviso.classList.add("is-error");
+
+      } else{
+         contador.classList.remove("is-error");
+         aviso.classList.remove("is-error");
       }
    
 })
+
