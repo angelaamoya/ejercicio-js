@@ -80,7 +80,10 @@
 var titular= document.querySelector("#titular");
 var contador= document.querySelector(".contador");
 var contadorNumero = document.querySelector("#contador-numero");
-var avis0 = document.querySelector("aviso");
+var aviso = document.querySelector("#aviso");
+var cartelTitular= document.querySelector("#cartel-titular")
+
+
 titular.addEventListener("input" , function(){
 
    var texto = titular.value;
@@ -97,6 +100,36 @@ titular.addEventListener("input" , function(){
          contador.classList.remove("is-error");
          aviso.classList.remove("is-error");
       }
-   
-})
+      //extra: SI esta vacio texto por defecto
 
+      if (texto == "") {
+         console.log("esta vacio");
+
+      } else {
+         console.log("esta escribiendo");
+         cartelTitular.textContent = texto ;
+
+      }
+
+});
+
+
+
+//ejesrcicio 2 - bucle for
+
+var botonPaleta = document.querySelector("#boton-paleta");
+var paleta = document.querySelector("#paleta")
+var colores = ["#16BFAE", "#12181B", "#F3F6F5", "#FFD23F", "#FF5C8A"];
+
+botonPaleta.addEventListener("click" , function(){
+      for (var i = 0;  i < colores.length; i++){
+         var color = colores[i];
+         
+         paleta.innerHTML = paleta.innerHTML +
+            '<div class="muestra style= "background-color":'+ color + '">' + 
+            '<span>' + color + '</span>' + 
+            '</div>';
+      
+      }
+//seleccionar paleta-info y añadir texto donde se exponga cuantos colores (numero) se han añadido y fallo colores
+})
