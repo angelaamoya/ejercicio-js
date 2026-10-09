@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS: if/else, for y this</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="cabecera">
+        <p class="cabecera__kicker">Diseño Web Avanzado · Tema 3</p>
+        <h1>Ejercicios de JavaScript</h1>
+        <p class="cabecera__texto">Condicionales, bucles y <code>this</code>. Las instrucciones detalladas están en <code>js/script.js</code>.</p>
+    </header>
+
+    <main class="ejercicios">
+
+        <!-- ============ EJERCICIO 1: IF / ELSE ============ -->
+        <section class="ejercicio" id="ejercicio-1">
+            <div class="ejercicio__cabecera">
+                <span class="ejercicio__numero">1</span>
+                <div>
+                    <h2>Condicionales: titular de cartel</h2>
+                    <p>El titular de un cartel no puede pasar de <strong>40 caracteres</strong>. Si se pasa, el contador se pone en rojo y aparece un aviso; si no, todo está correcto.</p>
+                </div>
+            </div>
+
+            <div class="ejercicio__zona">
+                <label for="titular">Titular del cartel</label>
+                <input type="text" id="titular" placeholder="Escribe el titular...">
+
+                <p class="contador">
+                    <span id="contador-numero">0</span> / 40 caracteres
+                </p>
+                <p class="aviso" id="aviso">El titular cabe en el cartel.</p>
+
+                <div class="cartel">
+                    <p class="cartel__titular" id="cartel-titular">Tu titular aquí</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EJERCICIO 2: BUCLE FOR ============ -->
+        <section class="ejercicio" id="ejercicio-2">
+            <div class="ejercicio__cabecera">
+                <span class="ejercicio__numero">2</span>
+                <div>
+                    <h2>Bucles: generador de paleta</h2>
+                    <p>Al pulsar el botón, un bucle <code>for</code> recorre una lista de colores y crea una muestra por cada uno, con su código hexadecimal.</p>
+                </div>
+            </div>
+
+            <div class="ejercicio__zona">
+                <button type="button" class="boton" id="boton-paleta">Generar paleta</button>
+
+                <!-- El JavaScript crea aquí dentro las muestras de color -->
+                <div class="paleta" id="paleta"></div>
+
+                <p class="contador" id="paleta-info">La paleta está vacía.</p>
+            </div>
+        </section>
+
+        <!-- ============ EJERCICIO 3: THIS + VENTANA MODAL ============ -->
+        <section class="ejercicio" id="ejercicio-3">
+            <div class="ejercicio__cabecera">
+                <span class="ejercicio__numero">3</span>
+                <div>
+                    <h2>this: cartel de artistas</h2>
+                    <p>Hay una sola ventana modal para todos los artistas. Al pulsar "Ver más", la modal se abre con los datos del artista cuyo botón se ha pulsado (<code>this</code>).</p>
+                </div>
+            </div>
+
+            <div class="ejercicio__zona">
+                <div class="artistas">
+
+                    <!-- Cada botón guarda los datos de su artista en atributos data- -->
+                    <article class="artista">
+                        <h3>Luna Neón</h3>
+                        <p>Electrónica · Viernes</p>
+                        <button type="button" class="boton boton--borde boton-artista"
+                            data-nombre="Luna Neón"
+                            data-texto="Productora de Valencia. Sesiones de synthwave y luces de neón para abrir el festival.">
+                            Ver más
+                        </button>
+                    </article>
+
+                    <article class="artista">
+                        <h3>Los Tipógrafos</h3>
+                        <p>Indie pop · Sábado</p>
+                        <button type="button" class="boton boton--borde boton-artista"
+                            data-nombre="Los Tipógrafos"
+                            data-texto="Banda formada por cuatro diseñadores gráficos. Sus portadas son tan famosas como sus canciones.">
+                            Ver más
+                        </button>
+                    </article>
+
+                    <article class="artista">
+                        <h3>Kerning</h3>
+                        <p>Hip hop · Sábado</p>
+                        <button type="button" class="boton boton--borde boton-artista"
+                            data-nombre="Kerning"
+                            data-texto="MC madrileño con letras sobre la vida en la ciudad. Siempre deja el espacio justo entre rima y rima.">
+                            Ver más
+                        </button>
+                    </article>
+
+                    <article class="artista">
+                        <h3>Pantone 2027</h3>
+                        <p>Rock · Domingo</p>
+                        <button type="button" class="boton boton--borde boton-artista"
+                            data-nombre="Pantone 2027"
+                            data-texto="Trío de rock que cambia el color de su escenografía en cada canción. Cierran el festival.">
+                            Ver más
+                        </button>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ VENTANA MODAL (una sola para todos) ============ -->
+    <div class="modal" id="modal">
+        <div class="modal__caja">
+            <button type="button" class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">×</button>
+            <h2 class="modal__titulo" id="modal-titulo">Nombre del artista</h2>
+            <p class="modal__texto" id="modal-texto">Descripción del artista.</p>
+        </div>
+    </div>
+
+</body>
+</html>

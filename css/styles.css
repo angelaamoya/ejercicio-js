@@ -1,0 +1,346 @@
+/* =========================================================
+   EJERCICIOS JS: if/else, for y this · Diseño Web Avanzado
+   ========================================================= */
+
+/* ---------- Variables ---------- */
+:root {
+    --color-fondo: #F3F6F5;
+    --color-superficie: #FFFFFF;
+    --color-texto: #12181B;
+    --color-suave: #5B6B67;
+    --color-acento: #16BFAE;
+    --color-borde: #DCE3E1;
+    --color-error: #E63946;
+    --color-ok: #2A9D8F;
+
+    --fuente-ui: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --fuente-codigo: "Courier New", monospace;
+
+    --espacio: 1.5rem;
+    --radio: 12px;
+    --ancho-max: 960px;
+    --transicion: 0.25s ease;
+}
+
+/* ---------- Reset básico ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--espacio) * 1.5);
+    padding: calc(var(--espacio) * 2) var(--espacio);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-ui);
+    line-height: 1.5;
+}
+
+code {
+    font-family: var(--fuente-codigo);
+    font-size: 0.95em;
+    padding: 0.05rem 0.35rem;
+    background-color: var(--color-borde);
+    border-radius: 4px;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+    width: 100%;
+    max-width: var(--ancho-max);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.cabecera__kicker {
+    font-family: var(--fuente-codigo);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-acento);
+}
+
+.cabecera h1 {
+    font-size: 2.2rem;
+}
+
+.cabecera__texto {
+    color: var(--color-suave);
+}
+
+/* ---------- Bloques de ejercicio ---------- */
+.ejercicios {
+    width: 100%;
+    max-width: var(--ancho-max);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--espacio) * 1.5);
+}
+
+.ejercicio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio);
+    padding: var(--espacio);
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+}
+
+.ejercicio__cabecera {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.ejercicio__cabecera h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.ejercicio__cabecera p {
+    color: var(--color-suave);
+}
+
+.ejercicio__numero {
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border-radius: 50%;
+}
+
+.ejercicio__zona {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--espacio);
+    background-color: var(--color-fondo);
+    border-radius: calc(var(--radio) / 1.5);
+}
+
+/* ---------- Campos y botones ---------- */
+label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-suave);
+}
+
+input[type="text"] {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.7rem 0.9rem;
+    font: inherit;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: calc(var(--radio) / 2);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+.boton {
+    padding: 0.7rem 1.4rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    border-radius: calc(var(--radio) / 2);
+    cursor: pointer;
+    transition: background-color var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.boton:hover {
+    background-color: var(--color-texto);
+    border-color: var(--color-texto);
+}
+
+.boton--borde {
+    color: var(--color-texto);
+    background-color: transparent;
+    border-color: var(--color-texto);
+}
+
+.boton--borde:hover {
+    color: var(--color-superficie);
+}
+
+/* ---------- Ejercicio 1: contador y cartel ---------- */
+.contador {
+    font-family: var(--fuente-codigo);
+    font-size: 0.9rem;
+    color: var(--color-suave);
+}
+
+/* Clase que añade el JS cuando el titular es demasiado largo */
+.contador.is-error {
+    color: var(--color-error);
+    font-weight: 700;
+}
+
+.aviso {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-superficie);
+    background-color: var(--color-ok);
+    border-radius: 999px;
+}
+
+.aviso.is-error {
+    background-color: var(--color-error);
+}
+
+.cartel {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espacio);
+    background-color: var(--color-texto);
+    border-radius: calc(var(--radio) / 2);
+}
+
+.cartel__titular {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-acento);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Ejercicio 2: paleta ---------- */
+.paleta {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Cada muestra la crea el JavaScript con esta clase */
+.muestra {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.5rem;
+    border: 1px solid var(--color-borde);   /* para que se vean también los colores claros */
+    border-radius: calc(var(--radio) / 2);
+    box-shadow: 0 2px 8px rgba(18, 24, 27, 0.12);
+}
+
+.muestra span {
+    width: 100%;
+    padding: 0.2rem 0.4rem;
+    font-family: var(--fuente-codigo);
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: var(--color-superficie);
+    border-radius: 4px;
+}
+
+/* ---------- Ejercicio 3: artistas ---------- */
+.artistas {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.artista {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.2rem;
+    text-align: center;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: calc(var(--radio) / 1.5);
+}
+
+.artista p {
+    font-size: 0.9rem;
+    color: var(--color-suave);
+    margin-bottom: 0.6rem;
+}
+
+/* ---------- Ventana modal ---------- */
+/* Oculta por defecto: el JS le añade la clase is-abierta */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espacio);
+    background-color: rgba(18, 24, 27, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transicion), visibility var(--transicion);
+}
+
+.modal.is-abierta {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__caja {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: calc(var(--espacio) * 1.5);
+    background-color: var(--color-superficie);
+    border-radius: var(--radio);
+    transform: translateY(20px);
+    transition: transform var(--transicion);
+}
+
+.modal.is-abierta .modal__caja {
+    transform: translateY(0);
+}
+
+.modal__titulo {
+    margin-bottom: 0.6rem;
+    color: var(--color-acento);
+}
+
+.modal__texto {
+    color: var(--color-suave);
+}
+
+.modal__cerrar {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
