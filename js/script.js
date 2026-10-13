@@ -143,9 +143,10 @@ paletaInfo.textContent = "Paleta generada con" + colores.length + "colores"
 var botonesArtista = document.querySelectorAll(".boton-Artista");
 var modal = document.querySelector("#modal-titulo");
 var modalTitulo = document.querySelector("#modal-texto");
+var modalCerrar = document.querySelector("#modal-cerrar");
 
 
-function abrirmodal(){
+function abrirModal(){
    //tis*boton concreto donde se ha hecho click */
    modalTitulo.textContent = this.getAtribute("data-nombre")
    modalTexto.textContent = this.getAtribute("data-texto")
@@ -153,7 +154,7 @@ function abrirmodal(){
 
 }
 
-function cerrarmodal(){
+function cerrarModal(){
    
 }
 
@@ -163,3 +164,5 @@ for ( var j = 0 ; j < botonesArtista.length; j++ ) {
    botonesArtista[j].addEventListener("click", abrirModal);
 
 }
+//cerrar modal
+modalCerrar.addEventListener(("click") , cerrarModal );
