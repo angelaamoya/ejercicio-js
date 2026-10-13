@@ -136,3 +136,24 @@ paleta.innerHTML = ""
 //seleccionar paleta-info y añadir texto donde se exponga cuantos colores (numero) se han añadido y fallo colores
 paleta.Info.textContent = "Paleta generada con" + colores.length + "colores"
 })
+
+
+//EJERCICIO 3: for 
+var botonesArtista = document.querySelectorAll;
+
+
+
+function abrirmodal(){
+
+}
+
+function cerrarmodal(){
+   
+}
+
+//bucle para asignar todos los botones del mismo evento
+for ( var j = 0 ; j < botonesArtista.length.j++ ) {
+
+   botonesArtista[j].addEventListener("click", abrirModal);
+
+}
