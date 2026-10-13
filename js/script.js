@@ -140,21 +140,23 @@ paletaInfo.textContent = "Paleta generada con" + colores.length + "colores"
 
 
 //EJERCICIO 3: for 
-var botonesArtista = document.querySelectorAll(".boton-Artista");
-var modal = document.querySelector("#modal-titulo");
-var modalTitulo = document.querySelector("#modal-texto");
+var botonesArtista = document.querySelectorAll(".boton-artista");
+var modal = document.querySelector("#modal");
+var modalTitulo = document.querySelector("#modal-titulo");
+var modalTexto = document.querySelector("#modal-texto");
 var modalCerrar = document.querySelector("#modal-cerrar");
 
 
 function abrirModal(){
    //tis*boton concreto donde se ha hecho click */
-   modalTitulo.textContent = this.getAtribute("data-nombre")
-   modalTexto.textContent = this.getAtribute("data-texto")
+   modalTitulo.textContent = this.getAttribute("data-nombre")
+   modalTexto.textContent = this.getAttribute("data-texto")
    modal.classList.add("is-abierta");
 
 }
 
 function cerrarModal(){
+   modal.classList.remove("is-abierta");
    
 }
 
@@ -165,4 +167,4 @@ for ( var j = 0 ; j < botonesArtista.length; j++ ) {
 
 }
 //cerrar modal
-modalCerrar.addEventListener(("click") , cerrarModal );
+modalCerrar.addEventListener("click" , cerrarModal );
