@@ -122,6 +122,8 @@ var paleta = document.querySelector("#paleta")
 var colores = ["#16BFAE", "#12181B", "#F3F6F5", "#FFD23F", "#FF5C8A"];
 
 botonPaleta.addEventListener("click" , function(){
+//resreteamos el contenido html de la paleta
+paleta.innerHTML = ""
       for (var i = 0;  i < colores.length; i++){
          var color = colores[i];
          
@@ -132,4 +134,5 @@ botonPaleta.addEventListener("click" , function(){
       
       }
 //seleccionar paleta-info y añadir texto donde se exponga cuantos colores (numero) se han añadido y fallo colores
+paleta.Info.textContent = "Paleta generada con" + colores.length + "colores"
 })
