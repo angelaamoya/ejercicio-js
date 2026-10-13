@@ -120,6 +120,7 @@ titular.addEventListener("input" , function(){
 var botonPaleta = document.querySelector("#boton-paleta");
 var paleta = document.querySelector("#paleta")
 var colores = ["#16BFAE", "#12181B", "#F3F6F5", "#FFD23F", "#FF5C8A"];
+var paletaInfo = document.getElementById("#paleta-info")
 
 botonPaleta.addEventListener("click" , function(){
 //resreteamos el contenido html de la paleta
@@ -134,16 +135,21 @@ paleta.innerHTML = ""
       
       }
 //seleccionar paleta-info y añadir texto donde se exponga cuantos colores (numero) se han añadido y fallo colores
-paleta.Info.textContent = "Paleta generada con" + colores.length + "colores"
+paletaInfo.textContent = "Paleta generada con" + colores.length + "colores"
 })
 
 
 //EJERCICIO 3: for 
-var botonesArtista = document.querySelectorAll;
-
+var botonesArtista = document.querySelectorAll(".boton-Artista");
+var modal = document.querySelector("#modal-titulo");
+var modalTitulo = document.querySelector("#modal-texto");
 
 
 function abrirmodal(){
+   //tis*boton concreto donde se ha hecho click */
+   modalTitulo.textContent = this.getAtribute("data-nombre")
+   modalTexto.textContent = this.getAtribute("data-texto")
+   modal.classList.add("is-abierta");
 
 }
 
@@ -152,7 +158,7 @@ function cerrarmodal(){
 }
 
 //bucle para asignar todos los botones del mismo evento
-for ( var j = 0 ; j < botonesArtista.length.j++ ) {
+for ( var j = 0 ; j < botonesArtista.length; j++ ) {
 
    botonesArtista[j].addEventListener("click", abrirModal);
 
