@@ -95,10 +95,12 @@ titular.addEventListener("input" , function(){
       if (texto.length > 20) {
          contador.classList.add("is-error");
          aviso.classList.add("is-error");
+         aviso.textContent = "demasioado largo: no cabe en el cartel";
 
       } else{
          contador.classList.remove("is-error");
          aviso.classList.remove("is-error");
+         aviso.textContent = "cabe en el cartel";
       }
       //extra: SI esta vacio texto por defecto
 
@@ -120,7 +122,7 @@ titular.addEventListener("input" , function(){
 var botonPaleta = document.querySelector("#boton-paleta");
 var paleta = document.querySelector("#paleta")
 var colores = ["#16BFAE", "#12181B", "#F3F6F5", "#FFD23F", "#FF5C8A"];
-var paletaInfo = document.getElementById("#paleta-info")
+var paletaInfo = document.querySelector("#paleta-info")
 
 botonPaleta.addEventListener("click" , function(){
 //resreteamos el contenido html de la paleta
@@ -129,14 +131,14 @@ paleta.innerHTML = ""
          var color = colores[i];
          
          paleta.innerHTML = paleta.innerHTML +
-            '<div class="muestra style= "background-color":'+ color + '">' + 
+            '<div class="muestra" style= "background-color:'+ color + '">' + 
             '<span>' + color + '</span>' + 
             '</div>';
       
       }
 //seleccionar paleta-info y añadir texto donde se exponga cuantos colores (numero) se han añadido y fallo colores
-paletaInfo.textContent = "Paleta generada con" + colores.length + "colores"
-})
+paletaInfo.textContent = "Paleta generada con " + colores.length + " colores";
+});
 
 
 //EJERCICIO 3: for 
